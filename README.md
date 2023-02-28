@@ -23,26 +23,23 @@ This pipeline manages large-scale TotalRNA meta-transcriptomic data for taxonomi
 
 ## Getting started
 
-#### Requirements:
-
-It is best to pre-install Mamba before starting. All other dependencies will be installed automatically when running the pipeline for the first time.
-
-```bash
-conda activate base
-mamba create -c conda-forge -c bioconda -n snakemake snakemake
-```
-
 #### Usage
 Activating conda environment:
 
 ```bash
 conda activate snakemake
 ```
+Give a name to your new project:
+
+```bash
+PROJECT_NAME=TotalRNA-Snakemake
+```
 
 Clone this git repository to the location where you want to run your analysis. Notice that you will need the flag --recurse-submodules in order to clone other repositories as dependencies. 
+
 ```bash
-git clone --recurse-submodules -j8 https://github.com/AU-ENVS-Bioinformatics/TotalRNA-Snakemake
-cd TotalRNA-Snakemake
+git clone --recurse-submodules -j8 https://github.com/AU-ENVS-Bioinformatics/huginn-TotalRNA-Snakemake $PROJECT_NAME
+cd $PROJECT_NAME
 ```
 
 Copy raw fastq files into the ´reads´ directory. See [reads/README.md](reads/README.md) for more information. Now, we are going to rename those files and made symlinks to the `results/renamed` directory.
