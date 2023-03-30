@@ -1,12 +1,10 @@
 AVAILABLE_THREADS = int(config.get("BLAST-THREADS", 50))
 
-
 rule CREST4:
     input:
         fasta="results/MetaRib/MetaRib/Abundance/all.dedup.filtered.fasta",
         otu="results/MetaRib/mapped_reads_to_contigs.tsv",
     output:
-        outdir=directory("results/CREST_Results"),
         otu="results/CREST_Results/assignments.txt",
     params:
         CREST4_DIR=config.get("CREST4_DIR", "~/.crest4/"),
@@ -18,13 +16,11 @@ rule CREST4:
     benchmark:
         "benchmarks/mapping_rrna/crest.log"
     shell:
-        "export CREST4_DIR={params.CREST4_DIR} &&"
+        "export CREST4_DIR={params.CREST4_DIR}; "
         "crest4 -f {input.fasta} "
         "-t {threads} "
         "-u {input.otu} "
-        "-o {output.outdir} "
-        "> {log} 2>&1 || true"
-
+        "-o results/CREST_Results || true"
 
 rule add_taxa_mapped:
     input:
