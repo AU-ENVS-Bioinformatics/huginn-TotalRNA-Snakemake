@@ -42,7 +42,7 @@ rule trinity:
         ),
     output:
         directory("results/mRNA/trinity/"),
-        temp("results/mRNA/trinity.Trinity.fasta"),
+        "results/mRNA/trinity.Trinity.fasta",
     log:
         "logs/assemble_mRNA/assemble_reads.log",
     conda:
@@ -64,7 +64,8 @@ rule filter_non_coding_rna:
     output:
         f"results/mRNA/trinity/contigs_ncrna_filtered.fasta",
     params:
-        script="workflow/scripts/CoMW/scripts/filter_ncRNA.py",
+        script=config.get("CoMW_REPOSITORY", "workflow/scripts/CoMW/")
+        + "scripts/filter_ncRNA_edited.py",
         extra=" ".join(config.get("filter_ncRNA", "")),
     threads: int(config.get("filter_non_coding_rna-THREADS", 50))
     conda:
