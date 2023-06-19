@@ -3,24 +3,10 @@ SORTMERNA_LSU_REF_DATABASE: "/Databases/SILVA_138/SILVA_138.1_LSURef_NR99_tax_si
 SORTMERNA_SSU_DATABASE_INDEX: "/Databases/sortmerna_idx/SSU"
 SORTMERNA_LSU_DATABASE_INDEX: "/Databases/sortmerna_idx/LSU"
 
-CoMW_REPOSITORY: "/software/CoMW/"
+RFAM_DATABASE: "/software/CoMW/databases/Rfam.cm"
 
 # When annotating rRNA, CREST4 will download Silva 138 in the following path
 CREST4_DIR: "/Databases/CREST4_DB/"
-
-#Next variables point to any database you want to use for functional analysis
-#Diamond will your mRNA against those. The pipeline expects all databases in a single directory
-DIAMOND_DATABASES_DIR: "/Databases/diamond_mRNA/"
-#The filename without extension of a valid diamond database
-#The pipeline will run only those you add here
-DIAMOND_DATABASES_IDENTIFIER:
-  - "CAZyDB.07312020"
-
-SWORD_DATABASES:
-  - Md5nr: /software/CoMW/databases/M5NR_protien.fasta
-  - CAZy: /software/CoMW/databases/CAZyDB.07202017.fa
-  - NCyc: /software/CoMW/databases/NCyc_100.faa
-
 
 PRIVATE_METARIB: 
   # EMIRGE references 
