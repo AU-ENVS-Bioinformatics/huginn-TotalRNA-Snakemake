@@ -5,7 +5,7 @@ print(config)
 exit(1)
 module total_rna:
     snakefile:
-        github("AU-ENVS-Bioinformatics/TotalRNA-Snakemake", path="workflow/Snakefile", branch="refactor")
+        github("AU-ENVS-Bioinformatics/TotalRNA-Snakemake", path="workflow/Snakefile", branch="main")
     config: config
 
 use rule * from total_rna
