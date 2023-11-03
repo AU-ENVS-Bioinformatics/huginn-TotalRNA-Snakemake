@@ -25,19 +25,13 @@ snakemake -c1 skip_rename
 
 Now, you can run the pipeline. We will use conda to manage the dependencies. Because those are already in Huginn, we can avoid reinstalling them. Check that everything is in order by running the dry-run.
 ```bash
-snakemake -n --use-conda --conda-prefix /software/TotalRNA-Snakemake --cores 50
+snakemake -n --use-conda --conda-prefix /software/TotalRNA-Snakemake --cores 100
 ```
 
 Remember to use screen, tmux or nohup. 
 
 ```bash
-snakemake --use-conda --conda-prefix /software/TotalRNA-Snakemake --cores 50
+snakemake --use-conda --conda-prefix /software/TotalRNA-Snakemake --cores 100
 ```
 
-You will find some reports in the qc/ folder. You can later use Diamond to annotate using AnnoTree:
-
-```bash
-snakemake -n annotree --use-conda --conda-prefix /software/TotalRNA-Snakemake --cores 50
-snakemake annotree --use-conda --conda-prefix /software/TotalRNA-Snakemake --cores 50
-```
-
+You will find some reports in the qc/ folder. You should check the notebook notebook/annotree.ipynb and rerun with custom parameters if necessary. 
